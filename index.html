@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="css/emojionearea.min.css">
+<script 
+src="https://code.jquery.com/jquery-2.2.4.js" 
+integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" 
+crossorigin="anonymous"></script>
+
+<script src="js/emojionearea.min.js" ></script>
 </head>
 <body>
   <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v13.0" nonce="KEmf63Lp"></script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v13.0" nonce="0lVKudmP"></script>
 <div id="menu">
 <ul>
 <!-- <img src="logo.jpeg" width="2%" height="100%"> -->
@@ -87,20 +94,30 @@
 <br/>
 <!-- <a href="mailto:ronigu@post.bgu.ac.il" >senfddd</a> -->
 <p align=center></p>
-<form class="main">
+<form class="main" action="mailto:ronigu@post.bgu.ac.il" method="post", enctype="text/plain">
   <table cellpadding="2" cellspacing="2">
     <caption align="left" valign="top">Please fill the following details :</caption>
     <tr>
       <td><label>your E-mail:</label></td>
-      <td colspan="3"><input type="text" class="txtClassLong" ID="mail" NAME="Text1"></td>
+      <td colspan="3"><input type="text" class="txtClassLong" ID="mail" NAME="E-mail Adress"></td>
     </tr>
     <tr>
       <td><label>message:</label></td>
       <td colspan="3"><TEXTAREA input type="text" class="txtClassLong" ID="message" NAME="message"  ROWS = "4" COLS = "36"></TEXTAREA></td>
+      <script>
+        $(document).ready(function(){
+          $("#message").emojioneArea();
+        })
+      </script>
+    
     </tr>
     <tr>
-      <td><input type="submit" class="btnClass" value="send E-mail" onclick="sendMail()"></td>
-      <td><input type="reset" class="btnClass" value="Reset E-mail" ></td>
+      <!-- <td><input type="submit" class="btnClass" value="send E-mail" ></td> -->
+      <td>
+        <button class="btnClass" type="submit"> Send </button>
+      </td>
+
+      <!-- <td><input type="reset" class="btnClass" value="Reset E-mail" ></td> -->
     </tr>
 </table>
 </form>
@@ -113,7 +130,7 @@
 <br/>
 <br/>
 <div class="fb-like" 
-data-href="https://developers.facebook.com/docs/plugins/" 
+data-href="https://www.facebook.com/%D7%99%D7%94%D7%95%D7%A8%D7%9D-%D7%92%D7%90%D7%95%D7%9F-558037670906980/" 
 data-width="" 
 data-layout="box_count" 
 data-action="like" 
@@ -138,25 +155,6 @@ $(function(){
   });​
  </script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script type="text/javascript">
-    function sendEmail() {
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: '#mail',
-        To: 'ronigu@post.bgu.ac.il',
-        From:'#mail',
-        Subject: "Sending Email using javascript",
-        Body: this.message,
-        Attachments: [
-          {
-            name: "File_Name_with_Extension",
-            path: "Full Path of the file"
-          }]
-      })
-        .then(function (message) {
-          alert("Mail has been sent successfully")
-        });
-    }
-  </script>
+
 </body>
 </html>
